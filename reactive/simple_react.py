@@ -1,4 +1,5 @@
 from charms.reactive import when, when_not, set_state
+from charmhelpers.core.hookenv import status_set
 
 
 @when_not('simple-react.installed')
@@ -15,4 +16,5 @@ def install_simple_react():
     #  * https://github.com/juju-solutions/layer-basic#overview
     #
     print("I hope this is logged!")
+    status_set('active', 'Install done')
     set_state('simple-react.installed')
